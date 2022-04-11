@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LoginApp</string>
+    <string name="tvLoginTitle">Логин</string>
+    <string name="txtInputLoginHint">Введите логин</string>
+    <string name="tvPasswordTitle">Пароль</string>
+    <string name="txtInputPasswordHint">Введите пароль</string>
+    <string name="txtButtonLoginTitle">Авторизоваться</string>
+    <string name="txtRememberPassword">Забыл пароль</string>
+    <string name="strRememberPassword">Заглушка восстановления пароля</string>
 </resources>
