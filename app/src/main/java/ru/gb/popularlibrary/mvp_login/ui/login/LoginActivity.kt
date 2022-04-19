@@ -1,38 +1,38 @@
-package ru.gb.popularlibrary.mvp_login
+package ru.gb.popularlibrary.mvp_login.ui.login
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.annotation.MainThread
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
-import ru.gb.popularlibrary.mvp_login.databinding.ActivityMainBinding
-import ru.gb.popularlibrary.mvp_login.presenter.LoginContract
-import ru.gb.popularlibrary.mvp_login.presenter.LoginPresenter
+import ru.gb.popularlibrary.mvp_login.R
+import ru.gb.popularlibrary.mvp_login.app
+import ru.gb.popularlibrary.mvp_login.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityLoginBinding
     private var presenter: LoginContract.Presenter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         presenter = getInstancePresenter()
         presenter?.onAttach(this)
 
-        binding.btnLogin.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             presenter?.onLogin(
-                binding.edtLogin.text.toString(),
-                binding.edtPassword.text.toString(),
+                binding.loginEditText.text.toString(),
+                binding.passwordEditText.text.toString(),
             )
         }
 
-        binding.tvRememberPassword.setOnClickListener {
+        binding.rememberPasswordTextView.setOnClickListener {
             showNotification()
         }
     }
@@ -43,7 +43,8 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
 
     private fun getInstancePresenter(): LoginPresenter {
         val presenter = lastCustomNonConfigurationInstance as? LoginPresenter
-        return presenter ?: LoginPresenter()
+
+        return presenter ?: LoginPresenter(app.loginUsecase)
     }
 
     override fun onRetainCustomNonConfigurationInstance(): Any? {
@@ -54,12 +55,12 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     override fun setSuccess() {
         // Скрываем поля на экране после успешного логина
         with(binding) {
-            btnLogin.isVisible = false
-            tvLoginTitle.isVisible = false
-            edtLogin.isVisible = false
-            tvPasswordTitle.isVisible = false
-            edtPassword.isVisible = false
-            tvRememberPassword.isVisible = false
+            loginButton.isVisible = false
+            loginTitleTextView.isVisible = false
+            loginEditText.isVisible = false
+            passwordTitleTextView.isVisible = false
+            passwordEditText.isVisible = false
+            rememberPasswordTextView.isVisible = false
             root.setBackgroundColor(resources.getColor(R.color.successLogin))
         }
     }
@@ -73,16 +74,16 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     override fun showProgress() {
         // Процесс авторизации. Начало
         // Надо отображать прогрессбар и делать кнопку неактивной
-        binding.btnLogin.isEnabled = false
-        binding.pbAuthorizatonProgress.isVisible = true
+        binding.loginButton.isEnabled = false
+        binding.authorizatonProgressProgressBar.isVisible = true
     }
 
     @MainThread
     override fun hideProgress() {
         // Процесс авторизации. Конец
         // Скрываем прогрессбар и даем доступ к кнопке
-        binding.btnLogin.isEnabled = true
-        binding.pbAuthorizatonProgress.isVisible = false
+        binding.loginButton.isEnabled = true
+        binding.authorizatonProgressProgressBar.isVisible = false
     }
 
     override fun getHandler(): Handler {

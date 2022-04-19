@@ -8,41 +8,41 @@
     android:padding="@dimen/paddingLoginActivity"
     android:layout_marginBottom="@dimen/marginBottomLoginActivity"
     android:gravity="center"
-    tools:context=".LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <TextView
-        android:id="@+id/tvLoginTitle"
+        android:id="@+id/login_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tvLoginTitle" />
 
     <EditText
-        android:id="@+id/edtLogin"
+        android:id="@+id/login_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtInputLoginHint"/>
 
     <TextView
-        android:id="@+id/tvPasswordTitle"
+        android:id="@+id/password_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tvPasswordTitle" />
 
     <EditText
-        android:id="@+id/edtPassword"
+        android:id="@+id/password_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtInputPasswordHint"/>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginIntervalLoginActivity"
         android:text="@string/txtButtonLoginTitle"/>
 
     <TextView
-        android:id="@+id/tvRememberPassword"
+        android:id="@+id/remember_password_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginIntervalLoginActivity"
@@ -50,7 +50,7 @@
         android:textStyle="italic"/>
 
     <ProgressBar
-        android:id="@+id/pbAuthorizatonProgress"
+        android:id="@+id/authorizaton_progress_progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
