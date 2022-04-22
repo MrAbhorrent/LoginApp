@@ -1,27 +1,28 @@
-package ru.gb.popularlibrary.mvp_login.data
+package ru.gb.popularlibrary.mvp_login.data.loginapi
 
 import ru.gb.popularlibrary.mvp_login.domain.LoginApi
 
-class WebLoginApiImpl: LoginApi {
+class MockLoginApiImpl: LoginApi {
 
     private val TIME_WAIT_CONST = 3_000L
 
     override fun login(login: String, password: String): Boolean {
-        // TODO: Need make network request implementation
         Thread.sleep(TIME_WAIT_CONST)
         return login == password
     }
 
     override fun register(login: String, password: String, email: String): Boolean {
-        TODO("Not yet implemented")
+        Thread.sleep(TIME_WAIT_CONST)
+        return login.isNotEmpty()
     }
 
     override fun logout(): Boolean {
-        TODO("Not yet implemented")
+        Thread.sleep(TIME_WAIT_CONST)
         return true
     }
 
     override fun restorePassword(login: String): Boolean {
-        TODO("Not yet implemented")
+        Thread.sleep(TIME_WAIT_CONST)
+        return false
     }
 }

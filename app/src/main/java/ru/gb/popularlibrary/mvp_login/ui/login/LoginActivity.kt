@@ -1,5 +1,6 @@
 package ru.gb.popularlibrary.mvp_login.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +11,7 @@ import androidx.core.view.isVisible
 import ru.gb.popularlibrary.mvp_login.R
 import ru.gb.popularlibrary.mvp_login.app
 import ru.gb.popularlibrary.mvp_login.databinding.ActivityLoginBinding
+import ru.gb.popularlibrary.mvp_login.ui.registration.RegistrationActivity
 
 class LoginActivity : AppCompatActivity(), LoginContract.View {
 
@@ -33,12 +35,16 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         }
 
         binding.rememberPasswordTextView.setOnClickListener {
-            showNotification()
+            showNotification(resources.getString(R.string.strRememberPassword))
+        }
+
+        binding.registrationTextView.setOnClickListener {
+            openRegisterActivity()
         }
     }
 
-    private fun showNotification() {
-        Toast.makeText(this@LoginActivity, resources.getString(R.string.strRememberPassword), Toast.LENGTH_SHORT).show()
+    private fun showNotification(message: String) {
+        Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun getInstancePresenter(): LoginPresenter {
@@ -61,6 +67,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
             passwordTitleTextView.isVisible = false
             passwordEditText.isVisible = false
             rememberPasswordTextView.isVisible = false
+            registrationTextView.isVisible = false
             root.setBackgroundColor(resources.getColor(R.color.successLogin))
         }
     }
@@ -84,6 +91,11 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         // Скрываем прогрессбар и даем доступ к кнопке
         binding.loginButton.isEnabled = true
         binding.authorizatonProgressProgressBar.isVisible = false
+    }
+
+    private fun openRegisterActivity() {
+        val intent = Intent(this, RegistrationActivity::class.java)
+        startActivity(intent)
     }
 
     override fun getHandler(): Handler {

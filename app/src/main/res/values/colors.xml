@@ -10,5 +10,5 @@
 
     <!-- App color set -->
     <color name="successLogin">@android:color/holo_green_dark</color>
-
+    <color name="successRegistration">@android:color/holo_blue_dark</color>
 </resources>

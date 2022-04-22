@@ -19,7 +19,6 @@ class LoginPresenter(
         } else if (isError) {
             view.setError(errorString)
         }
-
     }
 
     override fun onLogin(login: String, password: String) {
