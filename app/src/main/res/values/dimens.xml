@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingLoginActivity">16dp</dimen>
+    <dimen name="marginBottomLoginActivity">48dp</dimen>
+    <dimen name="marginIntervalLoginActivity">16dp</dimen>
+</resources>
