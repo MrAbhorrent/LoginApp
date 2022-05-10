@@ -7,4 +7,12 @@
     <string name="txtButtonLoginTitle">Авторизоваться</string>
     <string name="txtRememberPassword">Забыл пароль</string>
     <string name="strRememberPassword">Заглушка восстановления пароля</string>
+    <string name="textRegistration">Регистрация</string>
+    <string name="strRegistraionUser">Заглушка создания пользователя</string>
+    <string name="tvEmailTitle">e-mail</string>
+    <string name="txtEMailHint">Введите e-mail</string>
+    <string name="txtNewLoginHint">Введите логин</string>
+    <string name="textHintInputPassword">Введите пароль</string>
+    <string name="txtButtonRegistrationAccount">Создать аккаунт</string>
+    <string name="textHintConfirmPassword">Повторите пароль</string>
 </resources>

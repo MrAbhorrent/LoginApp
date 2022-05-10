@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="@dimen/marginBottomLoginActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/paddingLoginActivity"
+    tools:context=".ui.login.LoginActivity">
+
+    <TextView
+        android:id="@+id/login_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvLoginTitle" />
+
+    <EditText
+        android:id="@+id/login_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtNewLoginHint" />
+
+    <TextView
+        android:id="@+id/email_title_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tvEmailTitle" />
+
+    <EditText
+        android:id="@+id/email_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtEMailHint" />
+
+    <EditText
+        android:id="@+id/input_password_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textHintInputPassword"
+        android:layout_marginTop="@dimen/marginIntervalLoginActivity"/>
+
+    <EditText
+        android:id="@+id/confirm_password_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/textHintConfirmPassword"
+        android:layout_marginTop="@dimen/marginIntervalLoginActivity"/>
+
+    <Button
+        android:id="@+id/registration_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginIntervalLoginActivity"
+        android:text="@string/txtButtonRegistrationAccount" />
+
+    <ProgressBar
+        android:id="@+id/registration_progress_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginIntervalLoginActivity"
+        android:visibility="gone" />
+
+</LinearLayout>
