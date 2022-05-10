@@ -1,11 +1,10 @@
 package ru.gb.popularlibrary.mvp_login.ui.registration
 
 import ru.gb.popularlibrary.mvp_login.domain.RegistrationUsecase
-import ru.gb.popularlibrary.mvp_login.ui.login.LoginContract
 
-class RegistrationPresenter(
+class RegistrationViewModel(
     private val registratioUsecase: RegistrationUsecase
-): RegistrationContract.Presenter {
+): RegistrationContract.ViewModel {
 
     private val errorString = "Ошибка регистрации!!!"
     private var view: RegistrationContract.View? = null
